@@ -221,7 +221,7 @@
       "examples": [
         {
           "title": "on successful Request(200):",
-          "content": "{\n  \"data\": {\n    \"message\": \"registration done successfully. wait for OTP\"\n  },\n  \"errorFor\": {},\n  \"errors\": []\n}",
+          "content": "{\n  \"data\": {\n    \"message\": \"registration done successfully. wait for OTP\",\n    isAlreadyHasAcc:false\n  },\n  \"errorFor\": {},\n  \"errors\": []\n}",
           "type": "json"
         }
       ]
