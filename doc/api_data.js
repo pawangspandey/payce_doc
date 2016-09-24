@@ -178,69 +178,6 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/active/bank",
-    "title": "registration proccess[1]",
-    "name": "registration_proccess_1",
-    "description": "<p>create an account using mobile number.</p>",
-    "group": "register",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Content-Type",
-            "defaultValue": "application/json",
-            "description": "<p>for send json data.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "mobile_number",
-            "description": "<p>mobile number.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n  \"bank\" : \"_id wala data\",\n  \"vpa\" : \"pawan@payce\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "on successful Request(200):",
-          "content": "{\n  \"data\": {\n    message:\"bank and account added successfully\"\n  },\n  \"errorFor\": {},\n  \"errors\": []\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "on Invalid token OR expired token.(401):",
-          "content": "{\n  err: 'Invalid Token!'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./api/controllers/BanksController.js",
-    "groupTitle": "register"
-  },
-  {
-    "type": "POST",
     "url": "/register",
     "title": "registration proccess[1]",
     "name": "registration_proccess_1",
@@ -305,6 +242,69 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "./api/controllers/UsersController.js",
+    "groupTitle": "register"
+  },
+  {
+    "type": "POST",
+    "url": "/active/bank",
+    "title": "registration proccess[1]",
+    "name": "registration_proccess_1",
+    "description": "<p>create an account using mobile number.</p>",
+    "group": "register",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile_number",
+            "description": "<p>mobile number.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"bank\" : \"_id wala data\",\n  \"vpa\" : \"pawan@payce\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "{\n  \"data\": {\n    message:\"bank and account added successfully\"\n  },\n  \"errorFor\": {},\n  \"errors\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on Invalid token OR expired token.(401):",
+          "content": "{\n  err: 'Invalid Token!'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/BanksController.js",
     "groupTitle": "register"
   },
   {
@@ -449,5 +449,159 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "./api/controllers/UsersController.js",
     "groupTitle": "register"
+  },
+  {
+    "type": "GET",
+    "url": "/request",
+    "title": "get request info",
+    "name": "get_request_info",
+    "description": "<p>get_request_info</p>",
+    "group": "transactions",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "{\n  \"data\": [\n    {\n      \"_id\": \"57e6e73d7a13300229e12082\",\n      \"payer\": \"9028481116\",\n      \"payee\": \"8446131952\",\n      \"amount\": 5000,\n      \"date\": \"2016-09-24T20:51:09.776Z\",\n      \"__v\": 0\n    }\n  ],\n  \"errors\": [],\n  \"errorFor\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/UsersController.js",
+    "groupTitle": "transactions"
+  },
+  {
+    "type": "GET",
+    "url": "/request",
+    "title": "get transactions info",
+    "name": "get_transactions_info",
+    "description": "<p>get_transactions_info</p>",
+    "group": "transactions",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "{{\n  \"data\": [\n    {\n      \"_id\": \"57e6d76b930d287ce7c632ff\",\n      \"sender\": \"8446131952\",\n      \"receiver\": \"9028481116\",\n      \"amount\" : 1000,\n      \"date\": \"2016-09-24T19:43:39.970Z\",\n      \"__v\": 0\n    }\n  ],\n  \"errors\": [],\n  \"errorFor\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/UsersController.js",
+    "groupTitle": "transactions"
+  },
+  {
+    "type": "POST",
+    "url": "/send",
+    "title": "send money",
+    "name": "send_money",
+    "description": "<p>send money.</p>",
+    "group": "transactions",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example :",
+          "content": "{\n  receiver : \"mobileNo\",\n  amount : 500\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "\n{\n  data:{\n    \"message\":\"payment done!!\"\n  },\n  errors:[],\n  errorFor:{}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/UsersController.js",
+    "groupTitle": "transactions"
+  },
+  {
+    "type": "POST",
+    "url": "/request",
+    "title": "send request",
+    "name": "send_request",
+    "description": "<p>send request.</p>",
+    "group": "transactions",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example :",
+          "content": "{\n  payer : 9322466564,\n  amount : 2010\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "\n{\n  data:{\n    \"message\":\"request sent successful\"\n  },\n  errors:[],\n  errorFor:{}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/UsersController.js",
+    "groupTitle": "transactions"
   }
 ] });
