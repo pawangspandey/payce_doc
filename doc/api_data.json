@@ -178,6 +178,76 @@
   },
   {
     "type": "POST",
+    "url": "/active/bank",
+    "title": "active bank account",
+    "name": "active_bank_account",
+    "description": "<p>active bank account</p>",
+    "group": "register",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "bank",
+            "description": "<p>bank id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vpa",
+            "description": "<p>vpa.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"bank\" : \"_id wala data\",\n  \"vpa\" : \"pawan@payce\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "{\n  \"data\": {\n    message:\"bank and account added successfully\"\n  },\n  \"errorFor\": {},\n  \"errors\": []\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on Invalid token OR expired token.(401):",
+          "content": "{\n  err: 'Invalid Token!'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/BanksController.js",
+    "groupTitle": "register"
+  },
+  {
+    "type": "POST",
     "url": "/register",
     "title": "registration proccess[1]",
     "name": "registration_proccess_1",
@@ -242,69 +312,6 @@
     },
     "version": "0.0.0",
     "filename": "./api/controllers/UsersController.js",
-    "groupTitle": "register"
-  },
-  {
-    "type": "POST",
-    "url": "/active/bank",
-    "title": "registration proccess[1]",
-    "name": "registration_proccess_1",
-    "description": "<p>create an account using mobile number.</p>",
-    "group": "register",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Content-Type",
-            "defaultValue": "application/json",
-            "description": "<p>for send json data.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "mobile_number",
-            "description": "<p>mobile number.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n  \"bank\" : \"_id wala data\",\n  \"vpa\" : \"pawan@payce\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "on successful Request(200):",
-          "content": "{\n  \"data\": {\n    message:\"bank and account added successfully\"\n  },\n  \"errorFor\": {},\n  \"errors\": []\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "on Invalid token OR expired token.(401):",
-          "content": "{\n  err: 'Invalid Token!'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./api/controllers/BanksController.js",
     "groupTitle": "register"
   },
   {
