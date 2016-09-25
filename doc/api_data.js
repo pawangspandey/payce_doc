@@ -72,6 +72,92 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/expense",
+    "title": "get all expenses.",
+    "name": "expense_api",
+    "description": "<p>get all expenses.</p>",
+    "group": "banks",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "\t{\n  \"data\": {\n    \"_id\": \"57e75181ad4d3d1e78ab2d14\",\n    \"type\": \"expense\",\n    \"__v\": 0,\n    \"year\": {\n      \"2014\": 29292,\n      \"2015\": 93226,\n      \"2016\": 45107\n    },\n    \"month\": {\n      \"jan\": 2489,\n      \"feb\": 3997,\n      \"mar\": 5063,\n      \"apr\": 7957,\n      \"may\": 6395,\n      \"jun\": 1623,\n      \"jul\": 6770,\n      \"aug\": 9479,\n      \"sep\": 1334,\n      \"oct\": 0,\n      \"nov\": 0,\n      \"dec\": 0\n    },\n    \"week\": {\n      \"mon\": 3879,\n      \"tue\": 2295,\n      \"web\": 5788,\n      \"thu\": 1524,\n      \"fri\": 3376,\n      \"sat\": 4128,\n      \"sun\": 3000\n    },\n    \"today\": [\n      {\n        \"source\": \"myzone\",\n        \"time\": \"2016-09-25T04:24:33.875Z\",\n        \"amount\": 3000,\n        \"_id\": \"57e75181ad4d3d1e78ab2d15\"\n      }\n    ]\n  },\n  \"errors\": [],\n  \"errorFor\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on Invalid token OR expired token.(401):",
+          "content": "{\n  err: 'Invalid Token!'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/TransactionsController.js",
+    "groupTitle": "banks"
+  },
+  {
+    "type": "GET",
+    "url": "/income",
+    "title": "get all income.",
+    "name": "income_api",
+    "description": "<p>get all income.</p>",
+    "group": "banks",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "\t{\n  \"data\": {\n    \"_id\": \"57e75181ad4d3d1e78ab2d16\",\n    \"type\": \"income\",\n    \"__v\": 0,\n    \"year\": {\n      \"2014\": 879344,\n      \"2015\": 130083,\n      \"2016\": 862433\n    },\n    \"month\": {\n      \"jan\": 94071,\n      \"feb\": 97333,\n      \"mar\": 96552,\n      \"apr\": 92189,\n      \"may\": 94589,\n      \"jun\": 98585,\n      \"jul\": 94737,\n      \"aug\": 95616,\n      \"sep\": 98761,\n      \"oct\": 0,\n      \"nov\": 0,\n      \"dec\": 0\n    },\n    \"week\": {\n      \"mon\": 0,\n      \"tue\": 9207,\n      \"web\": 0,\n      \"thu\": 7613,\n      \"fri\": 7618,\n      \"sat\": 0,\n      \"sun\": 90000\n    },\n    \"today\": [\n      {\n        \"source\": \"salary\",\n        \"time\": \"2016-09-25T04:24:33.875Z\",\n        \"amount\": 90000,\n        \"_id\": \"57e75181ad4d3d1e78ab2d17\"\n      }\n    ]\n  },\n  \"errors\": [],\n  \"errorFor\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on Invalid token OR expired token.(401):",
+          "content": "{\n  err: 'Invalid Token!'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/TransactionsController.js",
+    "groupTitle": "banks"
+  },
+  {
+    "type": "GET",
     "url": "/dashboard",
     "title": "get dashboard",
     "name": "dashboard",
