@@ -1,5 +1,73 @@
 [
   {
+    "type": "POST",
+    "url": "/ai",
+    "title": "ai bot api",
+    "name": "ai_bot_api",
+    "description": "<p>ai bot api</p>",
+    "group": "AI",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "defaultValue": "application/json",
+            "description": "<p>for send json data.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Json",
+            "optional": false,
+            "field": "response",
+            "description": "<p>response from api.ai server.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "  {\n    \"response\" : {\n  \"id\": \"894943c3-9fef-4f16-9c1f-c8014c17dc0b\",\n  \"timestamp\": \"2016-09-25T09:12:05.966Z\",\n  \"result\": {\n    \"source\": \"agent\",\n    \"resolvedQuery\": \"show me the expenses report for feb\",\n    \"speech\": \"can you help me with reporting period?\",\n    \"action\": \"\",\n    \"parameters\": {\n      \"Action\": \"\",\n      \"date\": \"feb\",\n      \"date-period\": \"\",\n      \"report\": \"report\",\n      \"report1\": \"\",\n      \"type\": \"expenses\"\n    },\n    \"metadata\": {\n      \"intentId\": \"fabd5529-a81b-40b5-a197-10932dcdb5c6\",\n      \"webhookUsed\": \"false\",\n      \"inputContexts\": [],\n      \"outputContexts\": [],\n      \"contexts\": [\n        \"fabd5529-a81b-40b5-a197-10932dcdb5c6_id_dialog_context\",\n        \"fetch_report-type_dialog_context\",\n        \"fetch_report-type_dialog_params_date-period\"\n      ],\n      \"intentName\": \"fetch.report-type\"\n    },\n    \"score\": 0.28\n  },\n  \"status\": {\n    \"code\": 200,\n    \"errorType\": \"success\"\n  },\n  \"sessionId\": \"00000000-0000-0000-0000-000000000000\"\n}\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "on successful Request(200):",
+          "content": "{\n  \"data\": {\n    \"_id\": \"57e75181ad4d3d1e78ab2d14\",\n    \"type\": \"expense\",\n    \"__v\": 0,\n    \"year\": {\n      \"2014\": 29292,\n      \"2015\": 93226,\n      \"2016\": 45107\n    },\n    \"month\": {\n      \"jan\": 2489,\n      \"feb\": 3997,\n      \"mar\": 5063,\n      \"apr\": 7957,\n      \"may\": 6395,\n      \"jun\": 1623,\n      \"jul\": 6770,\n      \"aug\": 9479,\n      \"sep\": 1334,\n      \"oct\": 0,\n      \"nov\": 0,\n      \"dec\": 0\n    },\n    \"week\": {\n      \"mon\": 3879,\n      \"tue\": 2295,\n      \"web\": 5788,\n      \"thu\": 1524,\n      \"fri\": 3376,\n      \"sat\": 4128,\n      \"sun\": 3000\n    },\n    \"today\": [\n      {\n        \"source\": \"myzone\",\n        \"time\": \"2016-09-25T04:24:33.875Z\",\n        \"amount\": 3000,\n        \"_id\": \"57e75181ad4d3d1e78ab2d15\"\n      }\n    ]\n  },\n  \"errors\": [],\n  \"errorFor\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "on Invalid token OR expired token.(401):",
+          "content": "{\n  err: 'Invalid Token!'\n}",
+          "type": "json"
+        },
+        {
+          "title": "on duplicate register (400)",
+          "content": "{\n  data:[],\n  errors:[\"please try again\"],\n  errorFor:{}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./api/controllers/UsersController.js",
+    "groupTitle": "AI"
+  },
+  {
     "success": {
       "fields": {
         "Success 200": [
