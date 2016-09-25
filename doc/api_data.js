@@ -602,7 +602,7 @@ define({ "api": [
       "examples": [
         {
           "title": "on successful Request(200):",
-          "content": "{{\n  \"data\": [\n    {\n      \"_id\": \"57e6d76b930d287ce7c632ff\",\n      \"sender\": \"8446131952\",\n      \"receiver\": \"9028481116\",\n      \"amount\" : 1000,\n      \"date\": \"2016-09-24T19:43:39.970Z\",\n      \"__v\": 0\n    }\n  ],\n  \"errors\": [],\n  \"errorFor\": {}\n}",
+          "content": "{{\n  \"data\": [\n    {\n      \"_id\": \"57e6d76b930d287ce7c632ff\",\n      type : \"income\",\n      source : \"myzone\",\n      amount : 10000,\n      \"date\": \"2016-09-24T19:43:39.970Z\",\n    }\n  ],\n  \"errors\": [],\n  \"errorFor\": {}\n}",
           "type": "json"
         }
       ]
